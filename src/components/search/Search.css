@@ -1,0 +1,47 @@
+.button {
+    background-color: #3498db;
+    /* Button background color */
+    color: #fff;
+    /* Text color */
+    border: none;
+    /* Remove the button border */
+    padding: 10px 20px;
+    /* Padding around the button text */
+    border-radius: 5px;
+    /* Rounded corners */
+    text-align: center;
+    /* Center the text horizontally */
+    text-decoration: none;
+    /* Remove underlines for anchor buttons */
+    display: inline-block;
+    font-size: 16px;
+    /* Font size */
+    margin: 10px 5px;
+    /* Margin around the button */
+    cursor: help;
+    /* Change cursor on hover */
+
+    /* Button hover and focus styles */
+    transition: background-color 0.3s;
+    /* Smooth transition for background color on hover */
+}
+
+.button:hover {
+    background-color: #2980b9;
+    /* Button background color on hover */
+}
+
+.button:focus {
+    outline: none;
+    /* Remove focus outline */
+}
+
+/* Color Palette:
+
+#a1cca5
+#8fb996
+#5b8266
+#294936
+#212922
+
+*/

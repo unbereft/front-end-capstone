@@ -1,0 +1,42 @@
+/* Color Palette:
+
+#a1cca5
+#8fb996
+#5b8266
+#294936
+#212922
+
+*/
+
+.houseplants {
+    justify-content: space-evenly;
+    padding: 20px;
+    background-color: #5b8266;
+    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.plant-card {
+    padding: 10px;
+    margin: 10px;
+    width: 300px; /* Adjust the width as needed */
+    justify-content: center;
+    box-shadow: 3px 3px 5px #212922; 
+}
+.plant-details {
+    background-color: #a1cca5;
+    padding: 10px;
+    margin: 10px;
+    justify-content: center;
+
+}
+
+.search-bar {
+    flex: 1
+    
+}
+
+.plant-container {
+    background-color: #5b8266;
+}
