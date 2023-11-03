@@ -1,30 +1,32 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import { Plant } from "./Plant";
 import { getPlantsByUserId } from "../services/plantsService";
-import "./Plants.css";
 import { SearchBar } from "../search/SearchBar";
+import "../styles/Plants.css"
+import { UserContext } from "../views/ApplicationViews";
 
-export const MyHouseplants = ({ currentUser }) => {
+export const MyHouseplants = () => {
     const [plants, setPlants] = useState([]);
     const [searchTerm, setSearchTerm] = useState("")
-
-//! My Houseplants needs to check if plant.userId === currentUser.id && plant.owned === true
+    const currentUser = useContext(UserContext)
+    
+// My Houseplants needs to check if plant.userId === currentUser.id && plant.owned === true
 
     useEffect(() => {
         getPlantsByUserId(currentUser.id).then((plantArr) => {
-            setPlants(plantArr);
-        });
-    }, [currentUser.id]);
+            setPlants(plantArr)
+        })
+    }, [currentUser.id])
 
-    const foundPlants = plants.filter(plant => plant.userId === currentUser.id && plant.owned === true && plant.name.toLowerCase().includes(searchTerm.toLowerCase()));
+    const foundPlants = plants.filter(plant => plant.userId === currentUser.id && plant.owned === true && plant.name.toLowerCase().includes(searchTerm.toLowerCase()))
 
 
     return (
         <div className="plant-container">
             <div className="search-bar">
+            <h1>My Houseplants</h1>
                 <SearchBar searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
             </div>
-            <h2>My Houseplants</h2>
             <div className="houseplants">
                 {
                     foundPlants.map((plantArr) => (
@@ -39,8 +41,8 @@ export const MyHouseplants = ({ currentUser }) => {
             </div>
 
         </div>
-    );
-};
+    )
+}
 
 // ? What steps do I need to take to render this page?
 // set the plants state --> done on initial render

@@ -1,7 +1,9 @@
-import { useState, useEffect } from "react"
-import { Link, useParams } from "react-router-dom"
+import { useState, useEffect, useContext } from "react"
+import { Link, useParams, useNavigate } from "react-router-dom"
 import { getPlantsById } from "../services/plantsService"
 import { Plant } from "./Plant"
+import { updateWishlist } from "../services/wishlistService"
+import { UserContext } from "../views/ApplicationViews"
 
 // Plant Details field/form requirements:
 // Plant Name {plant.name}
@@ -13,6 +15,9 @@ import { Plant } from "./Plant"
 export const PlantDetails = () => {
     const [plant, setPlant] = useState([])
     const { plantId } = useParams()
+    const navigate = useNavigate()
+    const currentUser = useContext(UserContext)
+
 
     useEffect(() => {
         getPlantsById(plantId).then((plantArr) => {
@@ -22,16 +27,29 @@ export const PlantDetails = () => {
         })
     }, [plantId])
 
+    const handleWishlist = () => {
+        updateWishlist(
+            {
+            "plantId": plant.id,
+            "userId": currentUser.id
+            }).then(() => {
+                navigate(`/wishlist/${currentUser.id}`)
+            }) 
+
+    }
+
 
     return (
         <>
             <h2>Plant Details</h2>
-            <div className="plant-details">
+            <div className="plant-individual">
                 <Plant plant={plant} />
                 <div className="buttons">
-                <Link to={`/plants/${plant.id}/edit`}>
-                    <button className="edit-btn">Edit Plant </button>
+                    <Link to={`/plants/${plant.id}/edit`}>
+                        <button className="edit-btn">Edit Plant </button>
                     </Link>
+                    <button className="add-wishlist-btn" onClick={handleWishlist}>Add to Wishlist </button>
+
                 </div>
             </div>
         </>

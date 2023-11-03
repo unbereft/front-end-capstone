@@ -1,0 +1,38 @@
+/* Color Palette:
+
+#a1cca5
+#8fb996
+#5b8266
+#294936
+#212922
+
+*/
+
+.app-root {
+    background-color: #8fb996;
+    height: 100vh;
+    font-family: 'Playfair Display', serif;
+}
+
+body {
+    background-color: #8fb996;
+    color: #212922;
+
+}
+
+.wishlist-item {
+    display: flex;
+
+}
+
+.wishlist-item button {
+    background-color: #8fb996;
+    border: none;
+}
+
+/* Start https://www.cursors-4u.com */
+* {
+    cursor: url(https://cur.cursors-4u.net/nature/nat-10/nat967.cur), auto !important;
+}
+
+/* End https://www.cursors-4u.com */

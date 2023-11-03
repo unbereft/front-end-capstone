@@ -1,14 +1,16 @@
-import { useEffect, useState } from "react"
+import { useEffect, useState, useContext } from "react"
 import { useNavigate, useParams } from "react-router-dom"
 import { deletePlantById, getPlantsById, postHouseplant, updatePlantById } from "../services/plantsService"
 import { getLocations } from "../services/locationService"
+import "../styles/Plants.css"
+import { UserContext } from "../views/ApplicationViews"
 
-
-export const PlantForm = ({ currentUser, type }) => {
+export const PlantForm = ({ type }) => {
     const [plant, setPlant] = useState({ name: "", img: "", dateAcquiredOrCreated: "", locationId: "", owned: false })
     const navigate = useNavigate()
     const [locations, setLocations] = useState([])
     const param = useParams()
+    const currentUser = useContext(UserContext)
 
     useEffect(() => {
         getLocations().then((locationArr) => {
@@ -109,8 +111,11 @@ export const PlantForm = ({ currentUser, type }) => {
                         </option>
                     ))}
                 </select>
-                <br /><input type="checkbox" checked={plant.owned} onChange={handleCheckbox} />
-                <label>I own this</label>
+                <br />
+                <div className="checkbox-container">
+                    <input type="checkbox" checked={plant.owned} onChange={handleCheckbox} />
+                    <label>I own this</label>
+                </div>
             </form>
             <button onClick={handleSave}>Save 🪴</button>
             {type === "edit" && (

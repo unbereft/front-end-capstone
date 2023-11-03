@@ -6,11 +6,13 @@ import { PlantForm } from "./PlantForm"
 
 // PUT method - update
 
-export const EditPlantDetails = ({currentUser}) => {
+export const EditPlantDetails = () => {
     
     
     return (
         <><h2>Edit Plant Details</h2>
-        <PlantForm type="edit" currentUser={currentUser} /></>
+        <PlantForm type="edit"  /></>
     )
 }
+
+// I need to add some conditional logic so the "I own this" checkbox can only be interacted with if the currentUser.id === user.id

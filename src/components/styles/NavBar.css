@@ -1,0 +1,48 @@
+
+.navbar {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    font-family: 'Playfair Display', serif;
+    position: relative;
+}
+
+.navbar-logo {
+    width: 100px;  /* Or whatever width you desire */
+    height: auto; /* Maintain aspect ratio */
+    position: right;
+    align-items: flex-end;
+}
+
+.button {
+    background-color: #8fb996;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 10px 5px;
+    transition: background-color 0.3s;
+    font-family: 'Playfair Display', serif;
+}
+
+.button:hover {
+    background-color: #294936;
+}
+
+.button:focus {
+    outline: none;
+}
+
+/* Color Palette:
+
+#a1cca5
+#8fb996
+#5b8266
+#294936
+#212922
+
+*/

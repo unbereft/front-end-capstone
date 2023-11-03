@@ -1,11 +1,11 @@
-import "./Search.css"
+import "../styles/Plants.css"
 
 
 export const SearchBar = ({searchTerm, setSearchTerm}) => {
 
     return (
         <>
-            <div className="search-bar">
+            <div className="search-box">
                 <input onChange={(event) => {
                     setSearchTerm(event.target.value)
                 }}

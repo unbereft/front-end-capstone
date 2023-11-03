@@ -1,11 +1,13 @@
-import { useEffect, useState } from "react"
+import { useEffect, useState, useContext } from "react"
 import { Plant } from "./Plant"
 import { getAllPlants } from "../services/plantsService"
 import { SearchBar } from "../search/SearchBar"
+import { UserContext } from "../views/ApplicationViews"
 
-export const AllPlants = ({ currentUser }) => {
+export const AllPlants = () => {
     const [plants, setPlants] = useState([])
     const [searchTerm, setSearchTerm] = useState("")
+    const currentUser = useContext(UserContext)
 
     useEffect(() => {
         getAllPlants().then(plantArr => {
@@ -19,10 +21,10 @@ export const AllPlants = ({ currentUser }) => {
     return (
         <div className="plant-container">
             <div className="search-bar">
+            <h1>All Houseplants</h1>
                 <SearchBar searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
             </div>
 
-            <h2>All Houseplants</h2>
             <div className="houseplants">
                 {foundPlants.map((plantArr) => {
                     return (

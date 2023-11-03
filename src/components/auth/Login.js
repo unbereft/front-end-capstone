@@ -2,8 +2,8 @@ import React, { useState } from "react"
 import { Link } from "react-router-dom"
 import { useNavigate } from "react-router-dom"
 import "./Login.css"
-import { getUserByEmail } from "../../services/userService"
-import "./HouseplantHaven.png"
+import { getUserByEmail } from "../services/userService"
+import logo from "./HouseplantHaven.png"
 
 export const Login = () => {
     const [email, set] = useState("saraellenbates@gmail.com")
@@ -32,9 +32,8 @@ export const Login = () => {
     return (
         <main className="container-login">
             <section>
+                <img className="logo" src={logo} alt="Logo" />
                 <form className="form-login" onSubmit={handleLogin}>
-                    <img src="./HouseplantHaven.png" alt="" />
-                    <h1>Houseplant Haven</h1>
                     <h2>Please sign in</h2>
                     <fieldset>
                         <div className="form-group">
